@@ -37,7 +37,7 @@ export async function POST(req: Request) {
       'Sorry, I have no reply from Gemini.';
 
     return NextResponse.json({ reply: botReply });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('❌ Error in Gemini Chat API:', error);
     return NextResponse.json({ reply: 'Error calling Gemini API.' });
   }
