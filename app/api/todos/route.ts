@@ -9,7 +9,7 @@ type Todo = {
 };
 
 // In-memory store for todos (lives only while the server is running)
-let todos: Todo[] = [
+const todos: Todo[] = [
   { id: 1, title: 'Learn Next.js App Router', completed: false },
   { id: 2, title: 'Build a full-stack project', completed: false },
   { id: 3, title: 'Deploy the project', completed: false },
