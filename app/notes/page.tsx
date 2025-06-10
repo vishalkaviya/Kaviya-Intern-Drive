@@ -36,7 +36,7 @@ async function listNotes(input: { maxResults?: number; query?: string }): Promis
 export default function NotesPage() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [query, setQuery] = useState('');
-  const [maxResults, setMaxResults] = useState<number>(5);
+  const [maxResults] = useState<number>(5);
 
   // Fetch notes on mount + whenever query or maxResults changes
   const fetchNotes = async () => {
@@ -46,7 +46,7 @@ export default function NotesPage() {
 
   useEffect(() => {
     fetchNotes();
-  }, [query, maxResults]);
+  }, [fetchNotes]);
 
   return (
     <main style={styles.container}>
