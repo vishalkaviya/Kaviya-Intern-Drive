@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+🎓 Kaviya V – Full-Stack Internship Portfolio
 
-First, run the development server:
+A hands-on full-stack development portfolio built with Next.js 14, demonstrating practical skills through real-time, responsive applications like a To-do List, AI Chatbot, and Notes Viewer.
 
-```bash
+🌐 GitHub:  github.com/Lekashri-K/Lekashri-Intern2025
+🚀 Live Site: https://kaviya-intern-drive-n1k7.vercel.app/
+
+
+---
+
+📚 Table of Contents
+
+📌 Project Highlights
+
+🛠️ Tech Stack
+
+⚙️ Installation & Setup
+
+💻 Running the App Locally
+
+📁 Folder Structure
+
+🌍 Deployment Info
+
+
+
+---
+
+📌 Project Highlights
+
+✅ 1. To-do List
+
+Add, mark complete, and remove tasks
+
+Built with useState & useEffect for dynamic updates
+
+Clean, intuitive UI for daily productivity
+
+
+📝 2. NoteSync
+
+Displays user details like name, hobbies, and skills
+
+Professionally structured as a notes layout
+
+Simple and visually clear presentation
+
+
+🤖 3. AI Chatbot
+
+Real-time interaction using Google Gemini Pro API
+
+Sleek custom chat UI with gradient-styled bubbles
+
+Provides a conversational AI experience
+
+
+📄 4. Documents Section (Optional)
+
+Frontend UI designed for document display
+
+Backend functionality to be integrated in future updates
+
+
+
+---
+
+🛠️ Tech Stack
+
+Framework: Next.js 14 (App Router)
+
+Frontend: React, TypeScript, CSS (inline styling)
+
+AI Integration: Google Gemini Pro API
+
+Deployment: Vercel
+
+Version Control: Git + GitHub
+
+
+
+---
+
+⚙️ Installation & Setup
+
+# 1. Clone the repository
+git clone https://github.com/vishalkaviya/Kaviya-Intern-Drive
+
+# 2. Navigate to the project folder
+cd Fullstack-Intern
+
+# 3. Install dependencies
+npm install
+
+
+---
+
+💻 Run Locally
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit the app at: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+📁 Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+app/
+├── todo/             → To-do List Interface (page.tsx)
+├── notes/            → NoteSync (User Profile Display)
+├── chat/             → AI Chatbot Component
+├── documents/        → Documents UI Section
+├── api/
+│   └── chat/         → Google Gemini API Integration (route.ts)
+└── layout.tsx        → Shared Page Layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+🌍 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Live version available at:
+🔗https://kaviya-intern-drive-n1k7.vercel.app/
