@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from 'react';
 
-// Define Note type (same as in notesync.functions.ts)
+// Note type
 type Note = {
   id: string;
   title: string;
   content: string;
 };
 
-// Mock API function — import the actual listNotes function here if running locally
-// For demo purpose, you can copy your listNotes function here or import it properly.
+// Mock note fetcher
 async function listNotes(input: { maxResults?: number; query?: string }): Promise<Note[]> {
   const MOCK_NOTES: Note[] = [
     { id: '1', title: 'Meeting Notes', content: 'Discuss project roadmap.' },
@@ -20,33 +19,35 @@ async function listNotes(input: { maxResults?: number; query?: string }): Promis
     { id: '5', title: 'Daily Journal', content: 'Reflections and notes.' },
   ];
 
-  let filteredNotes = MOCK_NOTES;
+  const lowerQuery = (input.query ?? '').toLowerCase();
 
-  if (input.query && input.query.trim() !== '') {
-    const lowerQuery = input.query.toLowerCase();
-    filteredNotes = MOCK_NOTES.filter((note) =>
-      note.title.toLowerCase().includes(lowerQuery)
-    );
-  }
+  const filtered = MOCK_NOTES.filter(note =>
+    note.title.toLowerCase().includes(lowerQuery) ||
+    note.content.toLowerCase().includes(lowerQuery)
+  );
 
-  const maxResults = input.maxResults ?? 10;
-  return filteredNotes.slice(0, maxResults);
+  return filtered.slice(0, input.maxResults ?? 10);
 }
 
 export default function NotesPage() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [query, setQuery] = useState('');
-  const [maxResults] = useState<number>(5);
+  const [maxResults, setMaxResults] = useState<number>(5);
+  const [searchText, setSearchText] = useState('');
 
-  // Fetch notes on mount + whenever query or maxResults changes
   const fetchNotes = async () => {
     const data = await listNotes({ maxResults, query });
     setNotes(data);
   };
 
+  // Fetch notes on mount and when query/maxResults changes
   useEffect(() => {
     fetchNotes();
-  }, [fetchNotes]);
+  }, [query, maxResults]);
+
+  const handleSearch = () => {
+    setQuery(searchText); // triggers useEffect
+  };
 
   return (
     <main style={styles.container}>
@@ -56,29 +57,32 @@ export default function NotesPage() {
         <input
           type="text"
           placeholder="Search notes..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
           style={styles.input}
         />
-        
-        <button onClick={fetchNotes} style={styles.button}>
+        <button onClick={handleSearch} style={styles.button}>
           🔍 Search
         </button>
       </div>
 
       <ul style={styles.notesList}>
-        {notes.map((note) => (
-          <li key={note.id} style={styles.noteItem}>
-            <h3>{note.title}</h3>
-            <p>{note.content}</p>
-          </li>
-        ))}
+        {notes.length > 0 ? (
+          notes.map((note) => (
+            <li key={note.id} style={styles.noteItem}>
+              <h3>{note.title}</h3>
+              <p>{note.content}</p>
+            </li>
+          ))
+        ) : (
+          <p style={{ textAlign: 'center', color: '#777' }}>No notes found.</p>
+        )}
       </ul>
     </main>
   );
 }
 
-// Basic styles
+// Inline CSS styles
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
     padding: '2rem',
@@ -103,7 +107,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: '0.5rem',
     fontSize: '1rem',
     borderRadius: '5px',
-    border: '1px solid #ccc',
+    border: '2px solid black',
     width: '200px',
   },
   button: {
