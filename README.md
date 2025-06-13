@@ -157,11 +157,11 @@ On the frontend, handle the stream using EventSource or WebSocket-like behavior
 Update the UI live, simulating a “typing” assistant experience
 
 
+Provides a conversational AI experience
 
 ---
 
 
-Provides a conversational AI experience
 
 
 📄 4. Documents Section (Optional)
