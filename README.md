@@ -3,7 +3,7 @@
 
 A hands-on full-stack development portfolio built with Next.js 14, demonstrating practical skills through real-time, responsive applications like a To-do List, AI Chatbot, and Notes Viewer.
 
-🌐 GitHub:  github.com/vishalkaviya-Kaviya-Intern-Drive
+🌐 GitHub:  github.com/vishalkaviya/Kaviya-Intern-Drive
 🚀 Live Site: https://kaviya-intern-drive-n1k7.vercel.app/
 
 
